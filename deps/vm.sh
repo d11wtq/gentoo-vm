@@ -1,5 +1,3 @@
 vm() {
-  requires "docker"
-
-  process
+  requires docker
 }
