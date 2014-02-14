@@ -11,8 +11,5 @@ if [[ ! -x $HOME/.babashka/src/bin/babashka ]]; then
   curl -s $babashka_url | sh /dev/stdin 2>/dev/null
 fi
 
-# update portage
-sudo emerge --sync
-
 # hand off to babashka
 (cd /vagrant && ! babashka vm)
