@@ -1,6 +1,6 @@
 kernel_sources() {
   is_met() {
-    [[ -f /usr/src/linux/.config ]] && [[ -f /usr/src/linux/Makefile ]]
+    [[ -f /usr/src/linux/Makefile ]]
   }
 
   meet() {

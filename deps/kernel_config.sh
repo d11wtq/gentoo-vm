@@ -6,13 +6,13 @@ kernel_config() {
   def_config=/usr/src/linux/.config
 
   is_met() {
-    diff $new_config $old_config 2>/dev/null
+    diff $new_config $def_config 2>/dev/null
   }
 
   meet() {
     cd /usr/src/linux
     sudo make defconfig
-    sudo sh -c "cat $new_config >> $old_config"
+    #sudo sh -c "cat $new_config >> $old_config"
     sudo sh -c "cat $new_config >> $def_config"
     sudo genkernel \
       --install \
