@@ -1,11 +1,31 @@
 kernel_sources() {
-  is_met() {
-    [[ -f /usr/src/linux/Makefile ]]
+  kernel_ver=3.10.25
+  kernel_src=/usr/src/linux-$kernel_ver-aufs
+
+  installed() {
+    is_met() {
+      [[ -f $kernel_src/Makefile ]]
+    }
+
+    meet() {
+      sudo emerge =sys-kernel/aufs-sources-$kernel_ver
+    }
+
+    process
   }
 
-  meet() {
-    sudo emerge =sys-kernel/gentoo-sources-`uname -r | sed s/-gentoo//`
+  symlinked() {
+    is_met() {
+      [[ `realpath /usr/src/linux` = $kernel_src ]]
+    }
+
+    meet() {
+      sudo ln -snf $kernel_src /usr/src/linux
+    }
+
+    process
   }
 
-  process
+  requires installed
+  requires symlinked
 }
