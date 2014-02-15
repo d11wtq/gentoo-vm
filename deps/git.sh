@@ -1,11 +1,11 @@
 git() {
   installed() {
     is_met() {
-      which git 2>/dev/null
+      which git 2>/dev/null && [[ -f /usr/libexec/git-core/git-remote-https ]]
     }
 
     meet() {
-      sudo emerge git
+      sudo USE="curl" emerge dev-vcs/git
     }
 
     process
