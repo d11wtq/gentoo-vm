@@ -2,16 +2,13 @@ kernel_config() {
   requires kernel_sources
 
   new_config=/vagrant/deps/kernel_config/config
-  def_config=/usr/src/linux/.config
 
   is_met() {
-    diff $new_config $def_config 2>/dev/null
+    zcat /proc/config.gz | diff $new_config - 2>/dev/null
   }
 
   meet() {
-    cd /usr/src/linux
-    sudo make defconfig
-    sudo sh -c "cat $new_config >> $def_config"
+    sudo cp -f $new_config /usr/src/linux/.config
     sudo genkernel \
       --install \
       --symlink \
@@ -19,7 +16,10 @@ kernel_config() {
       --bootloader=grub2 \
       all
 
-    # need to recompile vbox guest stuff
+    rebuild_vbox_guest_additions
+  }
+
+  rebuild_vbox_guest_additions() {
     sudo emerge app-emulation/virtualbox-guest-additions
   }
 
