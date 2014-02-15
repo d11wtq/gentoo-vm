@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   config.vm.network :private_network, ip: "192.168.20.3"
 
   # share a folder to hold projects into the vm
-  config.vm.synced_folder "./projects", "/home/vagrant/projects",
+  config.vm.synced_folder "./", "/vagrant",
     type:          "nfs",
     create:        true,
     mount_options: ["vers=3", "udp", "nolock"]
