@@ -1,0 +1,3 @@
+[submodule ".babashka"]
+	path = .babashka
+	url = git://github.com/richo/babashka.git

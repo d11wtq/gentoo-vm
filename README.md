@@ -16,9 +16,14 @@ turn share that folder as a volume into my Docker containers.
 
 ## Usage
 
-Assuming you already have VirtualBox and Vagrant installed, fetch this
-repository and run `vagrant up`, then `vagrant ssh` to gain shell access to the
-virtual machine.
+First you need to clone the git submodules:
+
+    git submodule update --init
+
+Assuming you already have VirtualBox and Vagrant installed:
+
+    vagrant up
+    vagrant ssh
 
 SSH agent forwarding is enabled.
 
@@ -26,7 +31,9 @@ SSH agent forwarding is enabled.
 
 On the first boot, the virtual machine is provisioned with babashka in order to
 install Docker and do some basic configuration. To re-provision the virtual
-machine at a later date, run `vagrant provision`.
+machine at a later date:
+
+    vagrant provision
 
 ## Copyright & Licensing
 
