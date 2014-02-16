@@ -4,7 +4,7 @@ kernel_config() {
   new_config=/vagrant/deps/kernel_config/config
 
   is_met() {
-    zcat /proc/config.gz | diff $new_config - 2>/dev/null
+    (zcat /proc/config.gz | diff $new_config -) 2>/dev/null
   }
 
   meet() {
