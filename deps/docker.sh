@@ -10,9 +10,11 @@ docker() {
     }
 
     meet() {
-      sudo emerge =$pkg_name-$pkg_ver --autounmask-write
-      sudo etc-update --automode -5
-      sudo emerge =$pkg_name-$pkg_ver
+      (
+        sudo emerge =$pkg_name-$pkg_ver --autounmask-write
+        sudo etc-update --automode -5
+        sudo emerge =$pkg_name-$pkg_ver
+      ) 2>/dev/null
     }
 
     process
