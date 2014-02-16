@@ -14,7 +14,7 @@ kernel_config() {
       --symlink \
       --oldconfig \
       --bootloader=grub2 \
-      all
+      all 2>/dev/null
 
     rebuild_vbox_guest_additions
   }
