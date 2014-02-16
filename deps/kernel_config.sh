@@ -2,9 +2,11 @@ kernel_config() {
   requires kernel_sources
 
   new_config=/vagrant/deps/kernel_config/config
+  old_config=/usr/src/linux/.config
+  knl_config=/proc/config.gz
 
   is_met() {
-    (zcat /proc/config.gz | diff $new_config -) 2>/dev/null
+    ((zcat $knl_config || cat $old_config) | diff $new_config -) 2>/dev/null
   }
 
   meet() {
