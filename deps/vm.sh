@@ -1,4 +1,5 @@
 vm() {
+  requires portage_config
   requires portage_sync
   requires git
   requires vimrc
