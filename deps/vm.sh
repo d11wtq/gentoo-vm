@@ -8,4 +8,5 @@ vm() {
   requires docker
   requires etc_issue
   requires no_rsyslogd
+  requires alsa
 }

@@ -26,4 +26,13 @@ Vagrant.configure("2") do |config|
     privileged: false,
     keep_color: true,
     path:       "./provision.sh"
+
+  # enable the sound card on the vm
+  config.vm.provider :virtualbox do |vb|
+    vb.customize [
+      "modifyvm", :id,
+      "--audio",           "coreaudio",
+      "--audiocontroller", "ac97"
+    ]
+  end
 end
