@@ -6,15 +6,13 @@ docker() {
     require kernel_config
 
     is_met() {
-      (which docker && `which docker` version | grep $pkg_ver) 2>/dev/null
+      which docker && `which docker` version | grep $pkg_ver
     }
 
     meet() {
-      (
-        sudo emerge =$pkg_name-$pkg_ver --autounmask-write
-        sudo etc-update --automode -5
-        sudo emerge =$pkg_name-$pkg_ver
-      ) 2>/dev/null
+      sudo emerge =$pkg_name-$pkg_ver --autounmask-write
+      sudo etc-update --automode -5
+      sudo emerge =$pkg_name-$pkg_ver
     }
   }
 

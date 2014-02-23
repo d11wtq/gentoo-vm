@@ -5,7 +5,7 @@ portage_config() {
     pattern='^FEATURES=.*'
 
     is_met() {
-      [[ ! `grep -E "$pattern" $make_conf` ]]
+      ! grep -E "$pattern" $make_conf
     }
 
     meet() {

@@ -14,7 +14,7 @@ ntpd() {
     old_config=/etc/ntp.conf
 
     is_met() {
-      diff $new_config $old_config 2>/dev/null
+      diff $new_config $old_config
     }
 
     meet() {

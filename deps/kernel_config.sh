@@ -6,7 +6,7 @@ kernel_config() {
   knl_config=/proc/config.gz
 
   is_met() {
-    ((zcat $knl_config || cat $old_config) | diff $new_config -) 2>/dev/null
+    (zcat $knl_config || cat $old_config) | diff $new_config -
   }
 
   meet() {
@@ -16,7 +16,7 @@ kernel_config() {
       --symlink \
       --oldconfig \
       --bootloader=grub2 \
-      all 2>/dev/null
+      all
 
     rebuild_vbox_guest_additions
   }

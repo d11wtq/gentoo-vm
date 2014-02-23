@@ -1,7 +1,7 @@
 git() {
   installed() {
     is_met() {
-      which git 2>/dev/null && [[ -f /usr/libexec/git-core/git-remote-https ]]
+      which git && [[ -f /usr/libexec/git-core/git-remote-https ]]
     }
 
     meet() {
