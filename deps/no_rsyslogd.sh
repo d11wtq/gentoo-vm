@@ -6,6 +6,4 @@ no_rsyslogd() {
   meet() {
     sudo emerge -c app-admin/rsyslog
   }
-
-  process
 }

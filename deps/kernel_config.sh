@@ -1,5 +1,5 @@
 kernel_config() {
-  requires kernel_sources
+  require kernel_sources
 
   new_config=/vagrant/deps/kernel_config/config
   old_config=/usr/src/linux/.config
@@ -24,6 +24,4 @@ kernel_config() {
   rebuild_vbox_guest_additions() {
     sudo emerge app-emulation/virtualbox-guest-additions
   }
-
-  process
 }

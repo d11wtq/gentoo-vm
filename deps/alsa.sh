@@ -7,8 +7,6 @@ alsa() {
     meet() {
       sudo emerge media-sound/alsa-utils
     }
-
-    process
   }
 
   groups() {
@@ -19,10 +17,8 @@ alsa() {
     meet() {
       sudo usermod -aG audio vagrant
     }
-
-    process
   }
 
-  requires installed
-  requires groups
+  require installed
+  require groups
 }

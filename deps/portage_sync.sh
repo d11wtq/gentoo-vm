@@ -13,6 +13,4 @@ portage_sync() {
   meet() {
     sudo emerge --sync
   }
-
-  process
 }

@@ -8,6 +8,4 @@ etc_issue() {
   meet() {
     sudo cp -f $new_issue /etc/issue
   }
-
-  process
 }

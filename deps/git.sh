@@ -7,8 +7,6 @@ git() {
     meet() {
       sudo USE="curl" emerge dev-vcs/git
     }
-
-    process
   }
 
   configured() {
@@ -23,10 +21,8 @@ git() {
       $gitbin config --global user.name  d11wtq
       $gitbin config --global user.email chris@w3style.co.uk
     }
-
-    process
   }
 
-  requires installed
-  requires configured
+  require installed
+  require configured
 }

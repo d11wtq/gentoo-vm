@@ -7,8 +7,6 @@ ntpd() {
     meet() {
       sudo emerge net-misc/ntp
     }
-
-    process
   }
 
   configured() {
@@ -22,8 +20,6 @@ ntpd() {
     meet() {
       sudo cp -f $new_config $old_config
     }
-
-    process
   }
 
   rc() {
@@ -34,11 +30,9 @@ ntpd() {
     meet() {
       sudo rc-update add ntpd default
     }
-
-    process
   }
 
-  requires installed
-  requires configured
-  requires rc
+  require installed
+  require configured
+  require rc
 }

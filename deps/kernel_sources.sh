@@ -10,8 +10,6 @@ kernel_sources() {
     meet() {
       sudo emerge =sys-kernel/aufs-sources-$kernel_ver
     }
-
-    process
   }
 
   symlinked() {
@@ -22,10 +20,8 @@ kernel_sources() {
     meet() {
       sudo ln -snf $kernel_src /usr/src/linux
     }
-
-    process
   }
 
-  requires installed
-  requires symlinked
+  require installed
+  require symlinked
 }

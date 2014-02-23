@@ -9,8 +9,6 @@ projects_dir() {
     meet() {
       mkdir $target_dir
     }
-
-    process
   }
 
   symlinked() {
@@ -21,10 +19,8 @@ projects_dir() {
     meet() {
       ln -snf $target_dir ~/projects
     }
-
-    process
   }
 
-  requires created
-  requires symlinked
+  require created
+  require symlinked
 }

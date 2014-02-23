@@ -11,9 +11,7 @@ portage_config() {
     meet() {
       sudo sed -i "s/$pattern//g" $make_conf
     }
-
-    process
   }
 
-  requires features
+  require "features"
 }

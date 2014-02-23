@@ -3,7 +3,7 @@ docker() {
     pkg_ver=0.8.0
     pkg_name=app-emulation/docker
 
-    requires kernel_config
+    require kernel_config
 
     is_met() {
       (which docker && `which docker` version | grep $pkg_ver) 2>/dev/null
@@ -16,8 +16,6 @@ docker() {
         sudo emerge =$pkg_name-$pkg_ver
       ) 2>/dev/null
     }
-
-    process
   }
 
   rc() {
@@ -28,8 +26,6 @@ docker() {
     meet() {
       sudo rc-update add docker default
     }
-
-    process
   }
 
   groups() {
@@ -40,11 +36,9 @@ docker() {
     meet() {
       sudo usermod -aG docker vagrant
     }
-
-    process
   }
 
-  requires installed
-  requires rc
-  requires groups
+  require installed
+  require rc
+  require groups
 }

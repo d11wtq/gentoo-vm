@@ -9,6 +9,4 @@ vimrc() {
     sed -i 's/git:\/\/github\.com\//git@github.com:/g' ~/.vim/.git/config
     vim -u ~/.vim/setup 2>/dev/null
   }
-
-  process
 }
