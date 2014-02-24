@@ -16,10 +16,6 @@ turn share that folder as a volume into my Docker containers.
 
 ## Usage
 
-First you need to clone the git submodules:
-
-    git submodule update --init
-
 Assuming you already have VirtualBox and Vagrant installed:
 
     vagrant up
@@ -29,9 +25,9 @@ SSH agent forwarding is enabled.
 
 ## Provisioning
 
-On the first boot, the virtual machine is provisioned with babashka in order to
-install Docker and do some basic configuration. To re-provision the virtual
-machine at a later date:
+On the first boot, the virtual machine is provisioned with
+[Skittle](https://github.com/d11wtq/skittle) in order to install Docker and do
+some basic configuration. To re-provision the virtual machine at a later date:
 
     vagrant provision
 
