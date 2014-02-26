@@ -3,10 +3,10 @@ kernel_config() {
 
   new_config=/vagrant/deps/kernel_config/config
   old_config=/usr/src/linux/.config
-  knl_config=/proc/config.gz
+  kernel_img=/usr/src/linux/vmlinux
 
   is_met() {
-    (zcat $knl_config || cat $old_config) | diff $new_config -
+    /usr/src/linux/scripts/extract-ikconfig $kernel_img | diff $new_config -
   }
 
   meet() {
