@@ -1,6 +1,6 @@
 docker() {
   installed() {
-    pkg_ver=0.8.0
+    pkg_ver=0.8.1
     pkg_name=app-emulation/docker
 
     require kernel_config
