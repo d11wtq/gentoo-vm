@@ -21,11 +21,11 @@ Vagrant.configure("2") do |config|
   # use agent forwarding for ssh/git etc
   config.ssh.forward_agent = true
 
-  # provisioner script, using babashka internally
+  # provisioner script, using skittle internally
   config.vm.provision :shell,
     privileged: false,
     keep_color: true,
-    path:       "./provision.sh"
+    inline:     "(cd /vagrant && ./skittle vm)"
 
   # enable the sound card on the vm
   config.vm.provider :virtualbox do |vb|
