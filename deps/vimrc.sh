@@ -1,15 +1,44 @@
 vimrc() {
-  is_met() {
-    [[ -d ~/.vim ]] && [[ -f ~/.vimrc ]]
+  repo_path="d11wtq/dot-vim.git"
+
+  clone_repo() {
+    is_met() {
+      [[ -d ~/.vim ]]
+    }
+
+    meet() {
+      echolog "Cloning $repo_path"
+      git clone git://github.com/$repo_path ~/.vim
+    }
   }
 
-  meet() {
-    echolog "Cloning d11wtq/dot-vim.git"
-    git clone git://github.com/d11wtq/dot-vim.git ~/.vim
+  git_remote() {
+    origin="git@github.com:$repo_path"
+
     cd ~/.vim
-    git remote rm origin
-    git remote add origin git@github.com:d11wtq/dot-vim.git
-    echolog "Running d11wtq/dot-vim.git setup"
-    vim -u setup
+
+    is_met() {
+      git remote -v | grep origin | grep $origin
+    }
+
+    meet() {
+      git remote rm  origin
+      git remote add origin $origin
+    }
   }
+
+  setup() {
+    is_met() {
+      [[ `realpath ~/.vimrc` = `realpath ~/.vim/vimrc` ]]
+    }
+
+    meet() {
+      echolog "Running $repo_path setup"
+      vim -u ~/.vim/setup
+    }
+  }
+
+  require clone_repo
+  require git_remote
+  require setup
 }
