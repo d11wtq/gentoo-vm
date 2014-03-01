@@ -10,6 +10,7 @@ kernel_config() {
   }
 
   meet() {
+    echolog "Recompiling linux kernel"
     sudo cp -f $new_config /usr/src/linux/.config
     sudo genkernel \
       --install \
@@ -22,6 +23,7 @@ kernel_config() {
   }
 
   rebuild_vbox_guest_additions() {
+    echolog "Emerging virtualbox-guest-additions"
     sudo emerge app-emulation/virtualbox-guest-additions
   }
 }

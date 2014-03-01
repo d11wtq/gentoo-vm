@@ -8,6 +8,7 @@ kernel_sources() {
     }
 
     meet() {
+      echolog "Emerging aufs-sources"
       sudo emerge =sys-kernel/aufs-sources-$kernel_ver
     }
   }

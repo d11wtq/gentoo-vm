@@ -10,16 +10,14 @@ git() {
   }
 
   configured() {
-    gitbin=`which git`
-
     is_met() {
-      [[ `$gitbin config user.name` = "d11wtq" ]] &&
-        [[ `$gitbin config user.email` = "chris@w3style.co.uk" ]]
+      [[ `git config user.name` = "d11wtq" ]] &&
+        [[ `git config user.email` = "chris@w3style.co.uk" ]]
     }
 
     meet() {
-      $gitbin config --global user.name  d11wtq
-      $gitbin config --global user.email chris@w3style.co.uk
+      git config --global user.name  d11wtq
+      git config --global user.email chris@w3style.co.uk
     }
   }
 
