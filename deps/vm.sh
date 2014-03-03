@@ -3,6 +3,7 @@ vm() {
   require portage_sync
   require git
   require ntpd
+  require vim
   require vimrc
   require projects_dir
   require docker
