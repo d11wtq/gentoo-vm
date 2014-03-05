@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Usage: git-ff
+#
+# Fast-forwards the current branch without fetching.
+
+remote_branch=$(
+  git branch -vv \
+  | grep -F '*' \
+  | awk '{print $4}' \
+  | sed -r 's/\[(.*)\]/\1/g'
+)
+git merge $remote_branch --ff-only
