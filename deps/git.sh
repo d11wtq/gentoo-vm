@@ -32,11 +32,12 @@ git() {
   }
 
   configured() {
-    require config user.name  d11wtq
-    require config user.email chris@w3style.co.uk
-    require config color.ui   true
-    require config alias.st   status
-    require config alias.co   checkout
+    require config user.name    d11wtq
+    require config user.email   chris@w3style.co.uk
+    require config color.ui     true
+    require config push.default matching
+    require config alias.st     status
+    require config alias.co     checkout
   }
 
   custom_commands() {
