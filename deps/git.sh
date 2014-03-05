@@ -1,7 +1,7 @@
 git() {
   libexec_path() {
     re='s/.* in \x27([^ ]+)\x27.*/\1/'
-    git help -a | grep "git commands in" | sed -r "$re"
+    git help -a | grep "git commands in" | perl -pe "$re"
   }
 
   has_https() {
@@ -42,12 +42,14 @@ git() {
 
   custom_commands() {
     git_ff() {
+      script=./deps/git/git-ff
+
       is_met() {
-        which git-ff
+        which git-ff && diff `which git-ff` $script
       }
 
       meet() {
-        sudo cp ./deps/git/git-ff /usr/local/bin
+        sudo cp -f $script /usr/local/bin/
       }
     }
 

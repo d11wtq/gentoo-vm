@@ -8,6 +8,6 @@ remote_branch=$(
   git branch -vv \
   | grep -F '*' \
   | awk '{print $4}' \
-  | sed -r 's/\[(.*)\]/\1/g'
+  | perl -pe 's/\[(.*)\]/\1/g'
 )
 git merge $remote_branch --ff-only
