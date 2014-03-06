@@ -1,13 +1,27 @@
 #!/bin/bash
 
-# Usage: git-ff
-#
-# Fast-forwards the current branch without fetching.
+# Attempts to fast-forward the current local branch to its remote tracked branch.
+# Safely refuses if there is no remote tracking, or if a fast-forward is not possible.
+# @author Paul Annesley
 
-remote_branch=$(
-  git branch -vv \
-  | grep -F '*' \
-  | awk '{print $4}' \
-  | perl -pe 's/\[(.*)\]/\1/g'
-)
-git merge $remote_branch --ff-only
+if [ -n "$(git merge --ff-only 2>&1 | grep 'unknown option')" ]; then
+  echo "Your git doesn't seem to support --ff-only... try git 1.7+"
+  exit 1
+fi
+
+local_ref=$(git symbolic-ref -q HEAD)
+local_branch="${local_ref#refs/heads/}"
+
+remote_ref=$(git config "branch.$local_branch.merge")
+remote_branch="${remote_ref#refs/heads/}"
+
+remote=$(git config "branch.$local_branch.remote")
+
+if [ -z $remote_branch ] || [ -z $remote ]; then
+  echo "Local branch '$local_branch' not tracked against a remote."
+  exit 1
+fi
+
+echo "Attempting to fast-forward $local_branch to $remote/$remote_branch."
+
+git merge --ff-only ${remote}/${remote_branch}
