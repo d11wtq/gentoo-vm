@@ -5,7 +5,7 @@ vim() {
     }
 
     meet() {
-      sudo emerge =app-editors/vim-7.3
+      sudo emerge =app-editors/vim-7.3.762
     }
   }
 
