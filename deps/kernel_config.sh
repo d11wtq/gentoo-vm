@@ -1,4 +1,5 @@
 kernel_config() {
+  require eclean_kernel
   require kernel_sources
 
   new_config=/vagrant/deps/kernel_config/config
@@ -10,6 +11,9 @@ kernel_config() {
   }
 
   meet() {
+    echolog "Purging existing kernels"
+    sudo eclean-kernel -a -d
+
     echolog "Recompiling linux kernel"
     sudo cp -f $new_config /usr/src/linux/.config
     sudo genkernel \
