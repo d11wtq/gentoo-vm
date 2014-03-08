@@ -12,7 +12,7 @@ kernel_config() {
 
   meet() {
     echolog "Purging existing kernels"
-    sudo eclean-kernel -a -d
+    sudo eclean-kernel -a -d -x build
 
     echolog "Recompiling linux kernel"
     sudo cp -f $new_config /usr/src/linux/.config
