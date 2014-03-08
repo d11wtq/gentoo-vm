@@ -2,8 +2,8 @@
 
 Vagrant.configure("2") do |config|
   # local variables for maintainability
-  box_name = "gentoo-20131024-amd64-minimal.box"
-  box_host = "https://dl.dropboxusercontent.com/s/mfurnvstqoj8w47"
+  box_name = "gentoo-amd64-stage3.box"
+  box_host = "https://dl.dropboxusercontent.com/s/lyombjyb8f96ksh"
 
   # using a gentoo install as the docker host
   config.vm.box     = "gentoo"

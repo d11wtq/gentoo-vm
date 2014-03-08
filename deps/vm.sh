@@ -10,6 +10,5 @@ vm() {
   require projects_dir
   require docker
   require etc_issue
-  require no_rsyslogd
   require alsa
 }
