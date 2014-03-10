@@ -12,6 +12,7 @@ kernel_config() {
   }
 
   meet() {
+    # FIXME: Consider just using `rm', since we're deleting everything
     echolog "Purging existing kernels"
     sudo eclean-kernel -a -d -x build
 

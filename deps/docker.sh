@@ -3,8 +3,6 @@ docker() {
     pkg_ver=0.8.1
     pkg_name=app-emulation/docker
 
-    require kernel_config
-
     is_met() {
       which docker && `which docker` version | grep $pkg_ver
     }
