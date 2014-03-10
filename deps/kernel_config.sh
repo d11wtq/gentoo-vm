@@ -1,5 +1,6 @@
 kernel_config() {
   require eclean_kernel
+  require genkernel
   require kernel_sources
 
   new_config=/vagrant/deps/kernel_config/config
