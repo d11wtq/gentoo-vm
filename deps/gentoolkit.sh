@@ -4,6 +4,6 @@ gentoolkit() {
   }
 
   meet() {
-    emerge app-portage/gentoolkit
+    sudo emerge app-portage/gentoolkit
   }
 }
