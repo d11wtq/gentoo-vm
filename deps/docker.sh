@@ -1,10 +1,10 @@
 docker() {
   installed() {
-    pkg_ver=0.8.1
+    pkg_ver=0.9.0
     pkg_name=app-emulation/docker
 
     is_met() {
-      which docker && `which docker` version | grep $pkg_ver
+      which docker && docker -v | grep $pkg_ver
     }
 
     meet() {
