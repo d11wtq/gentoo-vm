@@ -11,4 +11,5 @@ vm() {
   require etc_issue
   require hostname
   require alsa
+  require cron
 }
