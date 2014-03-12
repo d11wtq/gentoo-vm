@@ -1,6 +1,5 @@
 vm() {
-  require portage_exists
-  require portage_sync
+  require portage
   require kernel_config
   require gentoolkit
   require git
