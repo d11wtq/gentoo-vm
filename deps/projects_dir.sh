@@ -1,5 +1,5 @@
 projects_dir() {
-  target_dir=/vagrant/projects
+  target_dir=`realpath ./projects`
 
   created() {
     is_met() {

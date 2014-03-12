@@ -3,7 +3,7 @@ kernel_config() {
   require genkernel
   require kernel_sources
 
-  new_config=/vagrant/deps/kernel_config/config
+  new_config=./deps/kernel_config/config
   old_config=/usr/src/linux/.config
   kernel_img=/usr/src/linux/vmlinux
 

@@ -10,7 +10,7 @@ ntpd() {
   }
 
   configured() {
-    new_config=/vagrant/deps/ntpd/ntp.conf
+    new_config=./deps/ntpd/ntp.conf
     old_config=/etc/ntp.conf
 
     is_met() {
