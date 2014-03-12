@@ -12,4 +12,5 @@ vm() {
   require hostname
   require alsa
   require cron
+  require emerge_sync_cron
 }
