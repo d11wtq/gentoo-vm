@@ -6,6 +6,7 @@ vm() {
   require ntpd
   require vim
   require vimrc
+  require tmux
   require projects_dir
   require docker
   require etc_issue
