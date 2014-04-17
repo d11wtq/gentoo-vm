@@ -1,6 +1,6 @@
 docker() {
   installed() {
-    pkg_ver=0.9.1
+    pkg_ver=0.10.0
     pkg_name=app-emulation/docker
 
     is_met() {
