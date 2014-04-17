@@ -9,9 +9,9 @@ docker() {
 
     meet() {
       echolog "Emerging docker"
-      sudo emerge =$pkg_name-$pkg_ver --autounmask-write
+      sudo USE=aufs emerge =$pkg_name-$pkg_ver --autounmask-write
       sudo etc-update --automode -5
-      sudo emerge =$pkg_name-$pkg_ver
+      sudo USE=aufs emerge =$pkg_name-$pkg_ver
     }
   }
 
