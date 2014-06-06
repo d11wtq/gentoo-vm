@@ -16,6 +16,7 @@ cron() {
 
     meet() {
       sudo rc-update add dcron default
+      sudo rc-update -u
     }
   }
 

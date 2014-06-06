@@ -1,6 +1,6 @@
 docker() {
   installed() {
-    pkg_ver=0.10.0
+    pkg_ver=0.11.1
     pkg_name=app-emulation/docker
 
     is_met() {
@@ -22,6 +22,7 @@ docker() {
 
     meet() {
       sudo rc-update add docker default
+      sudo rc-update -u
     }
   }
 

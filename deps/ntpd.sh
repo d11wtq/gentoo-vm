@@ -29,6 +29,7 @@ ntpd() {
 
     meet() {
       sudo rc-update add ntpd default
+      sudo rc-update -u
     }
   }
 
