@@ -22,6 +22,7 @@ portage() {
     }
 
     meet() {
+      echolog "Syncing portage tree"
       sudo emerge --sync
     }
   }
