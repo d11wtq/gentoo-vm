@@ -9,6 +9,7 @@ vm() {
   require tmux
   require projects_dir
   require docker
+  require fig
   require etc_issue
   require hostname
   require alsa
