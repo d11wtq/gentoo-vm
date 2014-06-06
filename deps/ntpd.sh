@@ -23,14 +23,7 @@ ntpd() {
   }
 
   rc() {
-    is_met() {
-      sudo rc-status default | grep ntpd
-    }
-
-    meet() {
-      sudo rc-update add ntpd default
-      sudo rc-update -u
-    }
+    require runlevel ntpd default
   }
 
   require installed

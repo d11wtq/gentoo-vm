@@ -10,14 +10,7 @@ cron() {
   }
 
   rc() {
-    is_met() {
-      sudo rc-status default | grep dcron
-    }
-
-    meet() {
-      sudo rc-update add dcron default
-      sudo rc-update -u
-    }
+    require runlevel dcron default
   }
 
   running() {

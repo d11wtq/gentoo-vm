@@ -16,14 +16,7 @@ docker() {
   }
 
   rc() {
-    is_met() {
-      sudo rc-status default | grep docker
-    }
-
-    meet() {
-      sudo rc-update add docker default
-      sudo rc-update -u
-    }
+    require runlevel docker default
   }
 
   groups() {
