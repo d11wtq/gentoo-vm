@@ -15,4 +15,5 @@ vm() {
   require alsa
   require cron
   require emerge_sync_cron
+  require bashrc
 }
