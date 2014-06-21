@@ -1,4 +1,5 @@
 vm() {
+  require locale
   require portage
   require kernel_config
   require gentoolkit
