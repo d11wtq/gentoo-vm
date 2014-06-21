@@ -16,4 +16,5 @@ vm() {
   require cron
   require emerge_sync_cron
   require bashrc
+  require figlet
 }

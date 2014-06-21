@@ -1,0 +1,100 @@
+#!/bin/bash
+
+# Base directory where environments are kept
+ENVS=~/environments
+
+print_help() {
+  echo "Usage: $0 [OPTIONS...] PROJECT [SERVICE] [COMMAND] [ARGS...]"
+  echo
+  echo "Run one-off fig services, defined under $ENVS."
+  echo
+  echo "Options:"
+  echo "  -h  Show this help"
+  echo "  -l  List projects"
+  echo "  -c  Clean: Remove stopped containers and untagged images"
+  echo "  -C  Clean: As for -c, but also stops running containers"
+  echo
+  echo "  PROJECT required."
+  echo "  SERVICE defaults to the first one in fig.yml."
+  echo "  COMMAND defaults to /bin/bash."
+}
+
+list_projects() {
+  echo "Projects:"
+  echo
+  for name in $(ls $ENVS)
+  do
+    echo "   * $name"
+  done
+}
+
+clean() {
+  docker ps -aq | xargs docker rm 2>/dev/null
+  docker images | grep '<none>' | awk '{print $3}' | xargs docker rmi 2>/dev/null
+}
+
+# Parse command line options
+while getopts "hlcC" opt
+do
+  case $opt in
+    h)
+      print_help
+      exit 0
+      ;;
+    l)
+      list_projects
+      exit 0
+      ;;
+    c)
+      clean
+      exit 0
+      ;;
+    C)
+      docker ps -aq | xargs docker kill 2>/dev/null
+      clean
+      exit 0
+      ;;
+  esac
+done
+
+# Finish parsing options
+shift $(($OPTIND - 1))
+
+# Display help usage if not enough args
+if [[ $# -eq 0 ]]
+then
+  print_help
+  exit 1
+fi
+
+# Locate the project directory
+PROJECT="$ENVS/$1"
+shift
+
+# Determine the service to run
+SERVICE=$1
+shift
+
+# Bail out if there's no such project
+if [[ ! -d "$PROJECT" ]]
+then
+  echo "No project direcory at $PROJECT"
+  exit 1
+fi
+
+# Switch to the project dir for fig
+cd "$PROJECT"
+
+# Grab the default service if needed
+if [[ -z $SERVICE ]]
+then
+  SERVICE="$(head -n1 fig.yml | cut -d ':' -f 1)"
+fi
+
+# Run the service via fig
+if [[ $# -gt 0 ]]
+then
+  fig run --rm "$SERVICE" "$@"
+else
+  fig run --rm "$SERVICE" /bin/bash
+fi
