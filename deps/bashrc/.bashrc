@@ -14,3 +14,6 @@ export LC_ALL=en_US.UTF-8
 
 # set the language
 export LANG=$LC_ALL
+
+# provide git completion
+source ~/.git-completion.bash

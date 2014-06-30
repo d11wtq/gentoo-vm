@@ -56,7 +56,21 @@ git() {
     require git_ff
   }
 
+  completion() {
+    new_script=./deps/git/git-completion.bash
+    old_script=~/.git-completion.bash
+
+    is_met() {
+      diff $new_script $old_script
+    }
+
+    meet() {
+      cp -f $new_script $old_script
+    }
+  }
+
   require installed
   require configured
   require custom_commands
+  require completion
 }
