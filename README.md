@@ -18,6 +18,10 @@ turn share that folder as a volume into my Docker containers.
 
 Assuming you already have VirtualBox and Vagrant installed:
 
+    # Pull in shared deps
+    git submodule update --init
+
+    # Boot VM
     vagrant up
     vagrant ssh
 
