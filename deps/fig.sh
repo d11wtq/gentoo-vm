@@ -1,5 +1,5 @@
 fig() {
-  pkg_ver=0.5.0
+  pkg_ver=0.5.1
   pkg_url=https://github.com/orchardup/fig/releases/download/$pkg_ver/linux
 
   is_met() {
