@@ -1,0 +1,3 @@
+[submodule "deps/base"]
+	path = deps/base
+	url = git@github.com:d11wtq/gentoo-base-deps.git

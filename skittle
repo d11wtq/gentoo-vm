@@ -43,6 +43,7 @@ SK_include_dep() {
     do
       for file in $(find $path -name "$1.sh")
       do
+        p=$(dirname $file)
         source $file
         return
       done
@@ -155,7 +156,7 @@ SK_recurse() {
 
   if SK_is_defined $1
   then
-    SK_expand_dep "$@"
+    SK_expand_dep "$@" 3>&1
   else
     SK_fail_unwind "Cannot find dependency '$1'"
   fi

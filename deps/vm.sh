@@ -1,21 +1,12 @@
 vm() {
-  require locale
-  require portage
-  require kernel_config
-  require gentoolkit
+  require base
   require git
-  require ntpd
   require vim
   require vimrc
   require tmux
   require projects_dir
-  require docker
   require fig
-  require etc_issue
-  require hostname
   require alsa
-  require cron
-  require emerge_sync_cron
   require bashrc
   require figlet
 }

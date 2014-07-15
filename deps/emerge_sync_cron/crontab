@@ -1,2 +1,0 @@
-# update portage every 12 hours
-* 6,18 * * * /usr/bin/emerge --sync
