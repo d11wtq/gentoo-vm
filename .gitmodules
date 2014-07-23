@@ -1,6 +1,6 @@
-[submodule "deps/base"]
-	path = deps/base
-	url = git@github.com:d11wtq/gentoo-base-deps.git
 [submodule "deps/personal"]
 	path = deps/personal
 	url = git@github.com:d11wtq/gentoo-personal-deps.git
+[submodule "deps/base"]
+	path = deps/base
+	url = git@github.com:d11wtq/gentoo-base-deps.git
