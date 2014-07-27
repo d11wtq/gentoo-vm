@@ -11,13 +11,7 @@ alsa() {
   }
 
   groups() {
-    is_met() {
-      [[ `/bin/groups vagrant` =~ audio ]]
-    }
-
-    meet() {
-      sudo usermod -aG audio vagrant
-    }
+    require group audio
   }
 
   require installed
