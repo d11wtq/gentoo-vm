@@ -1,24 +1,19 @@
 projects_dir() {
-  target_dir=`realpath ./projects`
+  src=~/projects
+  dst=/vagrant/projects
 
   created() {
     is_met() {
-      [[ -d $target_dir ]]
+      [[ -d $dst ]]
     }
 
     meet() {
-      mkdir $target_dir
+      mkdir $dst
     }
   }
 
   symlinked() {
-    is_met() {
-      [[ `realpath ~/projects` = $target_dir ]]
-    }
-
-    meet() {
-      ln -snf $target_dir ~/projects
-    }
+    require symlink $src $dst
   }
 
   require created
