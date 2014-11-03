@@ -5,7 +5,7 @@ alsa() {
     }
 
     meet() {
-      echolog "Emerging alsa-utils"
+      log "Emerging alsa-utils"
       sudo emerge media-sound/alsa-utils
     }
   }

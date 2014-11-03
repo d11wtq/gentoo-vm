@@ -7,7 +7,7 @@ fig() {
   }
 
   meet() {
-    echolog "Downloading fig"
+    log "Downloading fig"
     sudo sh -c "curl -sL $pkg_url > /usr/local/bin/fig"
     sudo chmod +x /usr/local/bin/fig
   }
