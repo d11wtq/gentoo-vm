@@ -1,6 +1,6 @@
 fig() {
-  pkg_ver=0.5.1
-  pkg_url=https://github.com/orchardup/fig/releases/download/$pkg_ver/linux
+  pkg_ver=1.0.0
+  pkg_url=https://github.com/docker/fig/releases/download/$pkg_ver/fig-Linux-x86_64
 
   is_met() {
     which fig && fig --version | grep $pkg_ver
